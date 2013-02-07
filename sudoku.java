@@ -1,4 +1,4 @@
-//package java-sudoku
+package suduku;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
@@ -9,14 +9,15 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class sudoku {
+public class Suduku {
 
     static int mNum = 0;
     static cell[][] cellArray = new cell[9][9];
     static menuCell[] mCellArray = new menuCell[9];
     static cell[] cellLine = new cell[81];
     static int fps;
-
+    static JButton startButton;
+    static int itt;
     public static void main(String[] args) {
         class th extends Thread {
 
@@ -34,22 +35,22 @@ public class sudoku {
 
         GUI() {
             int FPS_MIN = 0;
-            int FPS_MAX = 50;
-            int FPS_INIT = 25;    //initial frames per second
+            int FPS_MAX = 1000;
+            int FPS_INIT = 50;    //initial frames per second
             fps = FPS_INIT;
             
             JSlider framesPerSecond = new JSlider(JSlider.HORIZONTAL, FPS_MIN, FPS_MAX, FPS_INIT);
             SliderListener fpslistener = new SliderListener();
             framesPerSecond.addChangeListener(fpslistener);
-            framesPerSecond.setMajorTickSpacing(10);
-            framesPerSecond.setMinorTickSpacing(1);
+            framesPerSecond.setMajorTickSpacing(200);
+            framesPerSecond.setMinorTickSpacing(100);
             framesPerSecond.setPaintTicks(true);
             framesPerSecond.setPaintLabels(true);
             framesPerSecond.setBounds(10, 370, 270, 50);
             
             
             JPanel p = new JPanel(null);
-            JButton startButton = new JButton();
+            startButton = new JButton();
 
             p.setBounds(0, 0, 300, 420);
             p.setOpaque(true);
@@ -95,7 +96,7 @@ public class sudoku {
     public static class startButtonListener extends MouseAdapter {
 
         @Override
-        public void mousePressed(MouseEvent me) {
+        public void mousePressed(MouseEvent me) {            
             for (int i = 0; i < 9; ++i) {
                 for (int j = 0; j < 9; ++j) {
                     cellLine[i + 9*j] = cellArray[i][j];
@@ -117,6 +118,8 @@ public class sudoku {
     public static boolean solverR() {
         retObj ro;
         ro = findEmpty();
+        ++itt;
+        startButton.setText(Integer.toString(itt));
         if (!ro.b) {
             return true; //all cells assigned!
         }
@@ -129,7 +132,7 @@ public class sudoku {
                 try {
                     Thread.sleep(1000/fps);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(sudoku.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Suduku.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 if(solverR()){
                     return true;
