@@ -1,0 +1,15 @@
+With one of the numbers at the top selected, click on a cell in the 9 x 9 grid to enter a number there.
+
+Press Solve to apply the algorithm.
+
+If the puzzle is solvable it will (always) solve it.
+
+If there is more than one solution it will find one of them.
+
+I am not sure what it will do with an unsolvable puzzle (it probably won't solve it).
+
+Use the slider at the bottom to change how fast it goes. At its fastest it should solve any solvable puzzle in less than a second. Slow it down to see what it is doing.
+
+Put the file sudoku.java in some folder, type javac sudoku.java to compile it and java sodoku to run it.
+
+When you compile it it will make a load of files. Ignore these. If they look too messy you can delete all except the file sudoku.java.
