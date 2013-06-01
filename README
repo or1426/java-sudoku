@@ -12,4 +12,9 @@ Use the slider at the bottom to change how fast it goes. At its fastest it shoul
 
 Put the file sudoku.java in some folder, type javac sudoku.java to compile it and java sodoku to run it.
 
-When you compile it it will make a load of files. Ignore these. If they look too messy you can delete all except the file sudoku.java.
+You can also just run the sudoku.jar
+
+
+		**You are free to do what you like with it that won't get either of us in trouble**
+**If it does anything wrong it isn't my fault (you are the one who ran something designed by a drunk student after midnight)**
+
