@@ -1,5 +1,3 @@
-package suduku;
-
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -9,7 +7,7 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class Suduku {
+public class sudoku {
 
     static int mNum = 0;
     static cell[][] cellArray = new cell[9][9];
@@ -132,7 +130,7 @@ public class Suduku {
                 try {
                     Thread.sleep(1000/fps);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(Suduku.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(sudoku.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 if(solverR()){
                     return true;
